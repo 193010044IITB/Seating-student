@@ -1,0 +1,35 @@
+def SeatingStudents(arr):
+  K = arr[0]
+  O = arr[1:] # occupied
+  r = int(K/2)
+  s = []
+  x = 0
+
+  for i in range(r):
+    s.append([])
+    for j in range(2):
+      if ((x+1) in O):
+        All_s = True
+      else:
+        All_s= False
+      
+      s[i].append(str(All_s))
+      x += 1
+
+  arr = 0
+  for i in range(r-1):
+    if ((s[i][0] == str(False)) and (s[i][1] == str(False))):
+      arr += 1
+    if ((s[i][0] == str(False)) and (s[i+1][0] == str(False))):
+      arr += 1
+    if((s[i][1] == str(False)) and (s[i+1][1] == str(False))):
+      arr += 1
+  if ((s[r-1][0] == str(False)) and (s[r-1][1] == str(False))):
+    arr += 1
+
+
+  # code goes here
+  return arr
+
+# keep this function call here 
+print(SeatingStudents(input()))
